@@ -1,5 +1,5 @@
-import oracle from "./oracle";
-import consumer from "./consumer";
+import startOracle from "./oracle";
+import startConsumer from "./consumer";
 
-oracle();
-consumer();
+startOracle();
+startConsumer();
