@@ -9,15 +9,27 @@ const abi = require(path.resolve("artifacts", process.env.ABI_NAME));
 const address = process.env.CONTRACT_ADDRESS;
 const contract = web3.eth.contract(abi).at(address);
 
-export const updateWeather = ({ weatherDescription, temperature, humidity, visibility, windSpeed, windDirection, windGust }) => {
+const account = () => {
   return new Promise((resolve, reject) => {
     web3.eth.getAccounts((err, accounts) => {
+      if (err === null) {
+        resolve(accounts[0]);
+      } else {
+        reject(err);
+      }
+    });
+  });
+};
+
+export const updateWeather = ({ weatherDescription, temperature, humidity, visibility, windSpeed, windDirection, windGust }) => {
+  return new Promise((resolve, reject) => {
+    account().then(account => {
       contract.updateWeather(weatherDescription, temperature, humidity, visibility, windSpeed, windDirection, windGust,
-        { from: accounts[0] }, (error, res) => {
-          if (error === null) {
+        { from: account }, (err, res) => {
+          if (err === null) {
             resolve(res);
           } else {
-            reject(error);
+            reject(err);
           }
         }
       );
