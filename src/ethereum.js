@@ -27,4 +27,4 @@ export const updateWeather = ({ weatherDescription, temperature, humidity, visib
 
 export const weatherUpdate = (callback) => {
   contract.WeatherUpdate((error, result) => callback(error, result));
-}
+};

@@ -9,6 +9,6 @@ const consume = () => {
     console.log(result.args);
     console.log("\n");
   });
-}
+};
 
 export default consume;

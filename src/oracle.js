@@ -12,7 +12,7 @@ const start = () => {
   .then(updateWeather)
   .then(restart)
   .catch(error);
-}
+};
 
 const parseData = (body) => {
   return new Promise((resolve, reject) => {
@@ -35,15 +35,15 @@ const parseData = (body) => {
 
 const restart = () => {
   wait(process.env.TIMEOUT).then(start);
-}
+};
 
 const wait = (milliseconds) => {
   return new Promise((resolve, reject) => setTimeout(() => resolve(), milliseconds));
-}
+};
 
 const error = (error) => {
   console.error(error);
   restart();
-}
+};
 
 export default start;
