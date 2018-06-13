@@ -24,7 +24,6 @@
   },
   "dependencies": {
     "dotenv": "^5.0.1",
-    "path": "^0.12.7",
     "request": "^2.87.0",
     "request-promise-native": "^1.0.5",
     "truffle-hdwallet-provider": "^0.0.5",
