@@ -5,7 +5,7 @@ import path from "path";
 import Web3 from "web3";
 
 const web3 = new Web3(new HDWalletProvider(process.env.MNEMONIC, process.env.WEB3_PROVIDER_ADDRESS));
-const abi = require(path.resolve("artifacts", process.env.ABI_NAME));
+const abi = JSON.parse(process.env.ABI);
 const address = process.env.CONTRACT_ADDRESS;
 const contract = web3.eth.contract(abi).at(address);
 
