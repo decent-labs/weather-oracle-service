@@ -32,7 +32,7 @@ export const updateWeather = ({ weatherDescription, temperature, humidity, visib
           }
         }
       );
-    });
+    }).catch(error => reject(error));
   });
 };
 
